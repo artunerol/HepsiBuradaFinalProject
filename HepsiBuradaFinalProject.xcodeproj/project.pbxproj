@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC15272D389F0095AEF8 /* APIResult.swift */; };
 		83FD90F3272C9BA10065635A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F2272C9BA10065635A /* AppDelegate.swift */; };
 		83FD90F5272C9BA10065635A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F4272C9BA10065635A /* SceneDelegate.swift */; };
 		83FD90F7272C9BA10065635A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F6272C9BA10065635A /* ViewController.swift */; };
 		83FD90FA272C9BA10065635A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FD90F8272C9BA10065635A /* Main.storyboard */; };
 		83FD90FC272C9BA30065635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FD90FB272C9BA30065635A /* Assets.xcassets */; };
 		83FD90FF272C9BA30065635A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FD90FD272C9BA30065635A /* LaunchScreen.storyboard */; };
+		83FD910D272C9CBE0065635A /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD910C272C9CBE0065635A /* ResultCollectionViewCell.swift */; };
+		83FD9113272CB6C50065635A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD9112272CB6C50065635A /* APIHandler.swift */; };
+		83FD9116272CB79F0065635A /* APIResultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD9115272CB79F0065635A /* APIResultKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8333FC15272D389F0095AEF8 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		83FD90EF272C9BA10065635A /* HepsiBuradaFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HepsiBuradaFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FD90F2272C9BA10065635A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83FD90F4272C9BA10065635A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,9 @@
 		83FD90FB272C9BA30065635A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83FD90FE272C9BA30065635A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83FD9100272C9BA30065635A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FD910C272C9CBE0065635A /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		83FD9112272CB6C50065635A /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		83FD9115272CB79F0065635A /* APIResultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResultKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,10 @@
 		83FD90E6272C9BA10065635A = {
 			isa = PBXGroup;
 			children = (
+				83FD9114272CB7920065635A /* Model */,
+				83FD910E272C9CD60065635A /* Handler */,
+				83FD910B272C9CAD0065635A /* Components */,
+				83FD9108272C9C0E0065635A /* SceneModules */,
 				83FD90F1272C9BA10065635A /* HepsiBuradaFinalProject */,
 				83FD90F0272C9BA10065635A /* Products */,
 			);
@@ -58,13 +70,45 @@
 			children = (
 				83FD90F2272C9BA10065635A /* AppDelegate.swift */,
 				83FD90F4272C9BA10065635A /* SceneDelegate.swift */,
-				83FD90F6272C9BA10065635A /* ViewController.swift */,
 				83FD90F8272C9BA10065635A /* Main.storyboard */,
 				83FD90FB272C9BA30065635A /* Assets.xcassets */,
 				83FD90FD272C9BA30065635A /* LaunchScreen.storyboard */,
 				83FD9100272C9BA30065635A /* Info.plist */,
 			);
 			path = HepsiBuradaFinalProject;
+			sourceTree = "<group>";
+		};
+		83FD9108272C9C0E0065635A /* SceneModules */ = {
+			isa = PBXGroup;
+			children = (
+				83FD90F6272C9BA10065635A /* ViewController.swift */,
+			);
+			path = SceneModules;
+			sourceTree = "<group>";
+		};
+		83FD910B272C9CAD0065635A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				83FD910C272C9CBE0065635A /* ResultCollectionViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		83FD910E272C9CD60065635A /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				83FD9112272CB6C50065635A /* APIHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		83FD9114272CB7920065635A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8333FC15272D389F0095AEF8 /* APIResult.swift */,
+				83FD9115272CB79F0065635A /* APIResultKeys.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +184,11 @@
 			files = (
 				83FD90F7272C9BA10065635A /* ViewController.swift in Sources */,
 				83FD90F3272C9BA10065635A /* AppDelegate.swift in Sources */,
+				83FD9113272CB6C50065635A /* APIHandler.swift in Sources */,
 				83FD90F5272C9BA10065635A /* SceneDelegate.swift in Sources */,
+				83FD9116272CB79F0065635A /* APIResultKeys.swift in Sources */,
+				8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */,
+				83FD910D272C9CBE0065635A /* ResultCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
