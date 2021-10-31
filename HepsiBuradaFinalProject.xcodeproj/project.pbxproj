@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83021FF2272E8FB9002BD2DB /* DidSelectCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FF1272E8FB8002BD2DB /* DidSelectCellProtocol.swift */; };
 		83021FF8272E9326002BD2DB /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FF7272E9326002BD2DB /* DateFormatterHandler.swift */; };
+		83021FFA272E98BF002BD2DB /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 83021FF9272E98BF002BD2DB /* Readme.md */; };
 		8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC15272D389F0095AEF8 /* APIResult.swift */; };
 		8333FC20272D71C30095AEF8 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */; };
 		8333FC22272D71E00095AEF8 /* ViewBackGroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		83021FF1272E8FB8002BD2DB /* DidSelectCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidSelectCellProtocol.swift; sourceTree = "<group>"; };
 		83021FF7272E9326002BD2DB /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
+		83021FF9272E98BF002BD2DB /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		8333FC15272D389F0095AEF8 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
 		8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackGroundTheme.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		83FD90F1272C9BA10065635A /* HepsiBuradaFinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				83021FF9272E98BF002BD2DB /* Readme.md */,
 				83FD90F2272C9BA10065635A /* AppDelegate.swift */,
 				83FD90F4272C9BA10065635A /* SceneDelegate.swift */,
 				83FD90F8272C9BA10065635A /* Main.storyboard */,
@@ -248,6 +251,7 @@
 			files = (
 				83FD90FF272C9BA30065635A /* LaunchScreen.storyboard in Resources */,
 				83FD90FC272C9BA30065635A /* Assets.xcassets in Resources */,
+				83021FFA272E98BF002BD2DB /* Readme.md in Resources */,
 				83FD90FA272C9BA10065635A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
