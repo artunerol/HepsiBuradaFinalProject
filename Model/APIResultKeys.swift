@@ -13,5 +13,6 @@ struct APIResultKeys: Codable {
     let collectionPrice: Double
     let collectionName: String?
     let releaseDate: String
+    let trackName: String? //Name Result of the current search
 
 }

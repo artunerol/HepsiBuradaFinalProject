@@ -12,17 +12,17 @@ class APIHandler {
     
     static public let shared = APIHandler()
     
-    func getData(productType: String, searchedProductName: String, completion: @escaping (APIResult) -> Void) {
+    func getData(searchedItemType: String, searchedItemName: String, offset: Int, completion: @escaping (APIResult) -> Void) {
         
-        let searchString = searchedProductName.replacingOccurrences(of: " ", with: "+") // If user puts a space between words, change it with + in order to work with the URL.
-        guard let url = URL(string: "\(baseURL)&media=\(productType)&term=\(searchString)") else { return } //setting url to make the search with related filter.
-        print("url is \(url)")
-        let _ = URLSession.shared.dataTask(with: url) { data, urlResponse, error in
+        let searchedItemNameFormatted = searchedItemName.replacingOccurrences(of: " ", with: "+") // If user puts a space between words, change it with + in order to work with the URL.
+        let url = getURL(searchedItemType: searchedItemType, searchedItemName: searchedItemNameFormatted, offset: offset) //setting url to make the search with related filter.
+        print("my url is \(url)")
+        URLSession.shared.dataTask(with: url) { data, urlResponse, error in
             if error == nil { //Error Handling for dataTask
                 guard let data = data else { return } // API Data of Custom URL
                 do {
                     let decoder = try JSONDecoder().decode(APIResult.self, from: data)
-                    print("decoder is\(decoder)")
+                    print("decoder data is\(decoder)")
                     completion(decoder) // Completing the json Decode Operation
                 }
                 catch {
@@ -34,5 +34,11 @@ class APIHandler {
                 print("API error is \(String(describing: error))")
             }
         }.resume()
+    }
+    
+    //MARK: -
+    private func getURL(searchedItemType: String, searchedItemName:String, offset: Int) -> URL {
+        guard let url = URL(string: "\(baseURL)&media=\(searchedItemType.lowercased())&term=\(searchedItemName.lowercased())&offset=\(offset)") else { return URL(fileURLWithPath: "") }
+        return url
     }
 }

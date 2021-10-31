@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83021FED272DD755002BD2DB /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */; };
 		8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC15272D389F0095AEF8 /* APIResult.swift */; };
+		8333FC20272D71C30095AEF8 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */; };
+		8333FC22272D71E00095AEF8 /* ViewBackGroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */; };
+		8333FC24272D75B20095AEF8 /* TextFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC23272D75B20095AEF8 /* TextFonts.swift */; };
+		83BD1A91272D92E600AAF3B0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD1A90272D92E600AAF3B0 /* UIViewController+Extension.swift */; };
+		83BD1A93272DBBF100AAF3B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD1A92272DBBF100AAF3B0 /* DetailViewController.swift */; };
 		83FD90F3272C9BA10065635A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F2272C9BA10065635A /* AppDelegate.swift */; };
 		83FD90F5272C9BA10065635A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F4272C9BA10065635A /* SceneDelegate.swift */; };
 		83FD90F7272C9BA10065635A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD90F6272C9BA10065635A /* ViewController.swift */; };
@@ -20,7 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
 		8333FC15272D389F0095AEF8 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
+		8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackGroundTheme.swift; sourceTree = "<group>"; };
+		8333FC23272D75B20095AEF8 /* TextFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFonts.swift; sourceTree = "<group>"; };
+		83BD1A90272D92E600AAF3B0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		83BD1A92272DBBF100AAF3B0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		83FD90EF272C9BA10065635A /* HepsiBuradaFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HepsiBuradaFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FD90F2272C9BA10065635A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83FD90F4272C9BA10065635A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,9 +57,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83021FEB272DD747002BD2DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8333FC17272D41A50095AEF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				83BD1A90272D92E600AAF3B0 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8333FC1E272D71B90095AEF8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */,
+				8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */,
+				8333FC23272D75B20095AEF8 /* TextFonts.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		83FD90E6272C9BA10065635A = {
 			isa = PBXGroup;
 			children = (
+				83021FEB272DD747002BD2DB /* ViewModels */,
+				8333FC1E272D71B90095AEF8 /* Utils */,
+				8333FC17272D41A50095AEF8 /* Extensions */,
 				83FD9114272CB7920065635A /* Model */,
 				83FD910E272C9CD60065635A /* Handler */,
 				83FD910B272C9CAD0065635A /* Components */,
@@ -82,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				83FD90F6272C9BA10065635A /* ViewController.swift */,
+				83BD1A92272DBBF100AAF3B0 /* DetailViewController.swift */,
 			);
 			path = SceneModules;
 			sourceTree = "<group>";
@@ -147,7 +189,7 @@
 				};
 			};
 			buildConfigurationList = 83FD90EA272C9BA10065635A /* Build configuration list for PBXProject "HepsiBuradaFinalProject" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,10 +224,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8333FC24272D75B20095AEF8 /* TextFonts.swift in Sources */,
+				83BD1A91272D92E600AAF3B0 /* UIViewController+Extension.swift in Sources */,
 				83FD90F7272C9BA10065635A /* ViewController.swift in Sources */,
+				83BD1A93272DBBF100AAF3B0 /* DetailViewController.swift in Sources */,
 				83FD90F3272C9BA10065635A /* AppDelegate.swift in Sources */,
 				83FD9113272CB6C50065635A /* APIHandler.swift in Sources */,
+				83021FED272DD755002BD2DB /* MainViewControllerViewModel.swift in Sources */,
+				8333FC20272D71C30095AEF8 /* GenericValueProtocol.swift in Sources */,
 				83FD90F5272C9BA10065635A /* SceneDelegate.swift in Sources */,
+				8333FC22272D71E00095AEF8 /* ViewBackGroundTheme.swift in Sources */,
 				83FD9116272CB79F0065635A /* APIResultKeys.swift in Sources */,
 				8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */,
 				83FD910D272C9CBE0065635A /* ResultCollectionViewCell.swift in Sources */,
@@ -345,6 +393,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,6 +422,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
