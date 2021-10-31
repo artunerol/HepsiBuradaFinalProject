@@ -137,14 +137,14 @@ class ResultCollectionViewCell: UICollectionViewCell {
     func configureCell(with apiData: APIResultKeys) {
         self.imageView.image = nil //For Reusing cell operations, making the image nil
         self.title.text = nil
-        guard let url = URL(string: apiData.artworkUrl100) else { return }
+        guard let url = URL(string: apiData.artworkUrl100 ?? "") else { return }
         URLSession.shared.dataTask(with: url) { data, dataResponse, error in
             guard let data = data else { return }
             DispatchQueue.main.async {
                 self.imageView.image = UIImage(data: data)
                 self.title.text = apiData.trackName
-                self.subTitle.text = "\(apiData.collectionPrice)$"
-                self.releaseDate.text = self.getFormattedDate(with: apiData.releaseDate)
+                self.subTitle.text = "\(apiData.collectionPrice ?? 0)$"
+                self.releaseDate.text = self.getFormattedDate(with: apiData.releaseDate ?? "")
             }
         }.resume()
     }

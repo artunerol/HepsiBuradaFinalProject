@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83021FED272DD755002BD2DB /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */; };
+		83021FF2272E8FB9002BD2DB /* DidSelectCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FF1272E8FB8002BD2DB /* DidSelectCellProtocol.swift */; };
+		83021FF8272E9326002BD2DB /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83021FF7272E9326002BD2DB /* DateFormatterHandler.swift */; };
 		8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC15272D389F0095AEF8 /* APIResult.swift */; };
 		8333FC20272D71C30095AEF8 /* GenericValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */; };
 		8333FC22272D71E00095AEF8 /* ViewBackGroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */; };
@@ -26,7 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
+		83021FF1272E8FB8002BD2DB /* DidSelectCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidSelectCellProtocol.swift; sourceTree = "<group>"; };
+		83021FF7272E9326002BD2DB /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
 		8333FC15272D389F0095AEF8 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValueProtocol.swift; sourceTree = "<group>"; };
 		8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackGroundTheme.swift; sourceTree = "<group>"; };
@@ -57,12 +59,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83021FEB272DD747002BD2DB /* ViewModels */ = {
+		83021FF0272E8FAC002BD2DB /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				83021FEC272DD755002BD2DB /* MainViewControllerViewModel.swift */,
+				83021FF1272E8FB8002BD2DB /* DidSelectCellProtocol.swift */,
 			);
-			path = ViewModels;
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		83021FF3272E8FC9002BD2DB /* GenericValueProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */,
+			);
+			path = GenericValueProtocol;
+			sourceTree = "<group>";
+		};
+		83021FF4272E8FD2002BD2DB /* FontHandler */ = {
+			isa = PBXGroup;
+			children = (
+				8333FC23272D75B20095AEF8 /* TextFonts.swift */,
+			);
+			path = FontHandler;
+			sourceTree = "<group>";
+		};
+		83021FF5272E8FDB002BD2DB /* ViewBackgroundTheme */ = {
+			isa = PBXGroup;
+			children = (
+				8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */,
+			);
+			path = ViewBackgroundTheme;
+			sourceTree = "<group>";
+		};
+		83021FF6272E931E002BD2DB /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				83021FF7272E9326002BD2DB /* DateFormatterHandler.swift */,
+			);
+			path = DateFormatter;
 			sourceTree = "<group>";
 		};
 		8333FC17272D41A50095AEF8 /* Extensions */ = {
@@ -76,9 +110,10 @@
 		8333FC1E272D71B90095AEF8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8333FC1F272D71C30095AEF8 /* GenericValueProtocol.swift */,
-				8333FC21272D71E00095AEF8 /* ViewBackGroundTheme.swift */,
-				8333FC23272D75B20095AEF8 /* TextFonts.swift */,
+				83021FF6272E931E002BD2DB /* DateFormatter */,
+				83021FF5272E8FDB002BD2DB /* ViewBackgroundTheme */,
+				83021FF4272E8FD2002BD2DB /* FontHandler */,
+				83021FF3272E8FC9002BD2DB /* GenericValueProtocol */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -86,13 +121,13 @@
 		83FD90E6272C9BA10065635A = {
 			isa = PBXGroup;
 			children = (
-				83021FEB272DD747002BD2DB /* ViewModels */,
-				8333FC1E272D71B90095AEF8 /* Utils */,
-				8333FC17272D41A50095AEF8 /* Extensions */,
 				83FD9114272CB7920065635A /* Model */,
-				83FD910E272C9CD60065635A /* Handler */,
 				83FD910B272C9CAD0065635A /* Components */,
 				83FD9108272C9C0E0065635A /* SceneModules */,
+				83021FF0272E8FAC002BD2DB /* Interfaces */,
+				8333FC1E272D71B90095AEF8 /* Utils */,
+				8333FC17272D41A50095AEF8 /* Extensions */,
+				83FD910E272C9CD60065635A /* API Handler */,
 				83FD90F1272C9BA10065635A /* HepsiBuradaFinalProject */,
 				83FD90F0272C9BA10065635A /* Products */,
 			);
@@ -136,12 +171,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		83FD910E272C9CD60065635A /* Handler */ = {
+		83FD910E272C9CD60065635A /* API Handler */ = {
 			isa = PBXGroup;
 			children = (
 				83FD9112272CB6C50065635A /* APIHandler.swift */,
 			);
-			path = Handler;
+			path = "API Handler";
 			sourceTree = "<group>";
 		};
 		83FD9114272CB7920065635A /* Model */ = {
@@ -224,16 +259,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83021FF8272E9326002BD2DB /* DateFormatterHandler.swift in Sources */,
 				8333FC24272D75B20095AEF8 /* TextFonts.swift in Sources */,
 				83BD1A91272D92E600AAF3B0 /* UIViewController+Extension.swift in Sources */,
 				83FD90F7272C9BA10065635A /* ViewController.swift in Sources */,
 				83BD1A93272DBBF100AAF3B0 /* DetailViewController.swift in Sources */,
 				83FD90F3272C9BA10065635A /* AppDelegate.swift in Sources */,
 				83FD9113272CB6C50065635A /* APIHandler.swift in Sources */,
-				83021FED272DD755002BD2DB /* MainViewControllerViewModel.swift in Sources */,
 				8333FC20272D71C30095AEF8 /* GenericValueProtocol.swift in Sources */,
 				83FD90F5272C9BA10065635A /* SceneDelegate.swift in Sources */,
 				8333FC22272D71E00095AEF8 /* ViewBackGroundTheme.swift in Sources */,
+				83021FF2272E8FB9002BD2DB /* DidSelectCellProtocol.swift in Sources */,
 				83FD9116272CB79F0065635A /* APIResultKeys.swift in Sources */,
 				8333FC16272D389F0095AEF8 /* APIResult.swift in Sources */,
 				83FD910D272C9CBE0065635A /* ResultCollectionViewCell.swift in Sources */,

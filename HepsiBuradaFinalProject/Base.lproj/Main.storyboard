@@ -49,8 +49,8 @@
                                 <segments>
                                     <segment title="Movie"/>
                                     <segment title="Music"/>
-                                    <segment title="Apps"/>
-                                    <segment title="Books"/>
+                                    <segment title="Software"/>
+                                    <segment title="EBook"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -73,7 +73,7 @@
                     <navigationItem key="navigationItem" id="6kt-Ue-khW"/>
                     <connections>
                         <outlet property="SegmentedControlButton" destination="zIO-Xt-vy6" id="iaZ-Qz-3pc"/>
-                        <outlet property="mainResultCollectionView" destination="HXD-oH-pxd" id="HNv-bR-uNJ"/>
+                        <outlet property="mainResultCollectionView" destination="HXD-oH-pxd" id="AsJ-2i-UDw"/>
                         <outlet property="segmentedControlButtonBackground" destination="a7n-bH-CJi" id="44I-e0-ajE"/>
                     </connections>
                 </viewController>

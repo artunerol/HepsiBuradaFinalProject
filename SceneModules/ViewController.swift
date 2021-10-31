@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var SegmentedControlButton: UISegmentedControl!
     @IBOutlet weak var segmentedControlButtonBackground: UIView!
     
+    weak var delegate: DidSelectCellProtocol?
+    
     //MARK: - Properties
     
     private lazy var navigationBarSearchBar: UISearchBar = {
@@ -32,52 +34,47 @@ class ViewController: UIViewController {
     }()
     
     private var apiDataArray = [APIResultKeys]()
-    private var viewModel : MainViewControllerViewModel!
     
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfigurations()
-        settingColorsForUIViews()
     }
-    
-    //MARK: - Segue
     
     //MARK: - Private funcs
     
     /// Setup Configutarions of searchBar and CollectionView
     private func setupViewConfigurations() {
-        
-        navigationItem.titleView = navigationBarSearchBar //Adding Search Bar to NavigationBar as TitleView
-        
-        navigationBarSearchBar.delegate = self
-        
-        mainResultCollectionView.delegate = self
-        mainResultCollectionView.dataSource = self
-        
-        mainResultCollectionView.register(ResultCollectionViewCell.self, forCellWithReuseIdentifier: ResultCollectionViewCell.identifier)
+        setupCollectionViewConfigurations()
+        setupSearchBarConfigurations()
+        setUpSegmentedControlConfigurations()
     }
     
-    ///COLORS
-    private func settingColorsForUIViews() {
-        navigationBarSearchBar.backgroundColor = ViewBackGroundTheme.lighterBackground.value
-        
+    private func setupCollectionViewConfigurations() {
+        mainResultCollectionView.delegate = self
+        mainResultCollectionView.dataSource = self
+        mainResultCollectionView.register(ResultCollectionViewCell.self, forCellWithReuseIdentifier: ResultCollectionViewCell.identifier)
         mainResultCollectionView.backgroundColor = ViewBackGroundTheme.lighterBackground.value
+    }
+    
+    private func setupSearchBarConfigurations() {
+        navigationBarSearchBar.delegate = self
+        navigationBarSearchBar.backgroundColor = ViewBackGroundTheme.lighterBackground.value
+        navigationItem.titleView = navigationBarSearchBar //Adding Search Bar to NavigationBar as TitleView
+    }
+    
+    private func setUpSegmentedControlConfigurations() {
         
-        segmentedControlButtonBackground.backgroundColor = ViewBackGroundTheme.lighterBackground.value // setting background color for the UI below segmented button
         SegmentedControlButton.backgroundColor = .gray
         SegmentedControlButton.selectedSegmentTintColor = .darkGray
+        segmentedControlButtonBackground.backgroundColor = ViewBackGroundTheme.lighterBackground.value // setting background color for the UI below segmented button
     }
+    
 }
 
 //MARK: - CollectionView Extension
-///Setting Numbers of item in section
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return apiDataArray.count
-    }
     
     ///Setting Cell For item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,6 +83,20 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.configureCell(with: apiDataArray[indexPath.row]) //Configuring Cell with APIData
         return cell
     }
+    
+//MARK: - Data pass to DetailVC
+    
+    ///Passing Data to detailViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        delegate = vc
+        delegate?.setTitle(title: apiDataArray[indexPath.row].trackName ?? "")
+        delegate?.setImage(imageURL: apiDataArray[indexPath.row].artworkUrl100 ?? "")
+        delegate?.setReleaseDate(date: apiDataArray[indexPath.row].releaseDate ?? "")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+//MARK: - Pagination
     
     ///Pagination
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -107,11 +118,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        DetailViewController.shared.mainTitle.text = apiDataArray[indexPath.row].trackName
-        navigationController?.pushViewController(DetailViewController(), animated: true)
-    }
-    
+//MARK: - CollectionView Frame and size
     /// Setting Size For Item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width/2 - 15, height: 100)
@@ -123,6 +130,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return edgeInsets
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return apiDataArray.count
+    }
+    
 }
 
 //MARK: - SearchBar+Extension
@@ -130,37 +141,21 @@ extension ViewController: UISearchBarDelegate {
     
     ///When searchButton clicked(search Button is "Enter" in our case) get the APIData
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //
-        //        if navigationBarSearchBar.text != nil || navigationBarSearchBar.text != "" {
-        //
-        //            let selectedSegmentIndex = SegmentedControlButton.selectedSegmentIndex
-        //            guard let searchedItemType = SegmentedControlButton.titleForSegment(at: selectedSegmentIndex) else { return }
-        //
-        //            viewModel = MainViewControllerViewModel(searchedItemType: searchedItemType , searchedItemName: navigationBarSearchBar.text!)
-        //            viewModel.apiDataArray.removeAll() //Removing Inside The array to append new search items
-        //            viewModel.getAPIData { complete in
-        //                if complete {
-        //                    DispatchQueue.main.async {
-        //                        self.mainResultCollectionView.reloadData()
-        //                    }
-        //                }
-        //            }
-        //        }
+        apiDataArray.removeAll()
         
-        if navigationBarSearchBar.text != nil || navigationBarSearchBar.text != "" {
+        let searchedItemName = navigationBarSearchBar.text ?? ""
+        
+        let selectedSegmentIndex = SegmentedControlButton.selectedSegmentIndex
+        guard let searchedItemType = SegmentedControlButton.titleForSegment(at: selectedSegmentIndex) else { return }
+        
+        if searchedItemName != "" {
             
-            let selectedSegmentIndex = SegmentedControlButton.selectedSegmentIndex
-            guard let searchedItemType = SegmentedControlButton.titleForSegment(at: selectedSegmentIndex) else { return }
-            
-            APIHandler.shared.getData(searchedItemType: searchedItemType, searchedItemName: navigationBarSearchBar.text!, offset: apiDataArray.count, completion: { [weak self] apiData in //fetching data from API
-                
+            APIHandler.shared.getData(searchedItemType: searchedItemType, searchedItemName: searchedItemName, offset: apiDataArray.count) { [weak self] apiData in
                 self?.apiDataArray.append(contentsOf: apiData.results) //setting APIData to an array of a Global Property
-                
                 DispatchQueue.main.async {
-                    self?.mainResultCollectionView.reloadData() //Reloading collectionView when got the data from API
+                    self?.mainResultCollectionView.reloadData()
                 }
-                
-            })
+            }
         }
     }
 }
